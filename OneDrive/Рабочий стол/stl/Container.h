@@ -73,7 +73,7 @@ public:
             vec_arr[i] = vec.vec_arr[i];
     }
 
-    Vector<DataType>(Vector<DataType>&& vec) :
+    Vector(Vector<DataType>&& vec) :
         vec_arr(vec.arr), vec_arr_end(vec.vec_arr_end), vec_mem_end(vec.vec_mem_end)
     {
         vec.vec_arr = nullptr;
@@ -86,7 +86,7 @@ public:
         delete[] vec_arr;
     }
 
-    Vector<DataType>& operator=(const Vector<DataType>& vec)
+    Vector& operator=(const Vector<DataType>& vec)
     {
         if (this != &vec) {
             if (capacity() != vec.capacity())
